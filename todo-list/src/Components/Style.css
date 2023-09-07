@@ -1,0 +1,57 @@
+*{
+    font-family: sans-serif;
+}
+
+.card {
+    width: 26%;
+    background-color: #f0f0f0;
+    padding: 10px;
+    margin: 10px;
+    border: 1px solid #ddd;
+    border-radius: 5px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin: auto;
+    margin-top: 10px;
+  }
+  
+  .card button {
+    background-color: #ff5555;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    padding: 5px 10px;
+    cursor: pointer;
+  }
+
+  .inputsty{
+    font-size: 30px;
+    box-shadow: rgba(3, 102, 214, 0.3) 0px 0px 0px 3px;
+    border: none;
+  }
+
+  .addbtn{
+    background-color: #81e6d9;
+    color: black;
+    border: none;
+    border-radius: 5px;
+    padding: 5px 10px;
+    cursor: pointer;
+    margin: 15px;
+    font-size: 30px;
+  }
+  
+  .fonttdo{
+    font-size: 20px;
+    margin-top: 30px;
+    font-style: italic;
+  }
+  .card button:hover {
+    background-color: #ff3333;
+  }
+  
+  .error {
+    color: red;
+    font-size: 30px;
+  }

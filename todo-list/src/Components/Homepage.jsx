@@ -1,16 +1,24 @@
 import React, { useState } from 'react';
-
+import './Style.css'
 
 export const HomePage = () => {
     const [task, setTask] = useState("");
     const [todo, setTodo] = useState([]);
+    const [error, setError] = useState("");
 
+
+    const handlechange = (e) => {
+        setTask(e.target.value)
+        setError("")
+    }
 
     const handleAddTodo = () => {
         if (task.trim() !== '') {
             setTodo([...todo, task]);
             setTask("");
-        }
+        } else {
+            setError('Task cannot be empty!');
+          }
     }
 
     const handleDelete = (index) => {
@@ -22,22 +30,22 @@ export const HomePage = () => {
         <div>
             <div>
                 <h1>Todo List</h1>
-                <input type="text"
+                <input className='inputsty' type="text"
                     placeholder='Add Name'
                     value={task}
-                    onChange={(e) => setTask(e.target.value)} />
-                <button onClick={handleAddTodo}>ADD</button>
+                    onChange={handlechange} />
+                <button className='addbtn' onClick={handleAddTodo}>ADD</button>
             </div>
-
+            {error && <p className="error">{error}</p>}
             <div>
                 {todo.length === 0 ? (
-                    <div>No Tasks Added Yet!</div>
+                    <div className='fonttdo'>No Tasks Added Yet!</div>
                 )
                     :
                     (
                         <ul>
                             {todo.map((todo, id) => (
-                                <div key={id}>
+                                <div key={id} className='card'>
                                     <p>{todo}</p>
                                     <button onClick={() => handleDelete(id)}>Remove</button>
                                 </div>
