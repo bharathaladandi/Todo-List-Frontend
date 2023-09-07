@@ -1,5 +1,6 @@
 import React, { useState } from 'react';
 
+
 export const HomePage = () => {
     const [task, setTask] = useState("");
     const [todo, setTodo] = useState([]);
@@ -12,6 +13,11 @@ export const HomePage = () => {
         }
     }
 
+    const handleDelete = (index) => {
+        const deleteTodo = todo.filter(( _ , i) => i !== index);
+        setTodo(deleteTodo);
+      };
+
     return (
         <div>
             <div>
@@ -22,6 +28,7 @@ export const HomePage = () => {
                     onChange={(e) => setTask(e.target.value)} />
                 <button onClick={handleAddTodo}>ADD</button>
             </div>
+
             <div>
                 {todo.length === 0 ? (
                     <div>No Tasks Added Yet!</div>
@@ -29,10 +36,10 @@ export const HomePage = () => {
                     :
                     (
                         <ul>
-                            {todo.map((task, i) => (
-                                <div key={i}>
-                                    <p>{task}</p>
-                                    <button>Remove</button>
+                            {todo.map((todo, id) => (
+                                <div key={id}>
+                                    <p>{todo}</p>
+                                    <button onClick={() => handleDelete(id)}>Remove</button>
                                 </div>
                             ))}
                         </ul>
